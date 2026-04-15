@@ -6,12 +6,12 @@ export default function Footer({ data, t }) {
   const year = new Date().getFullYear();
 
   const links = [
-    { href: '#home',      label: 'Home'      },
-    { href: '#about',     label: 'About'     },
-    { href: '#skills',    label: 'Skills'    },
-    { href: '#projects',  label: 'Projects'  },
-    { href: '#education', label: 'Education' },
-    { href: '#contact',   label: 'Contact'   },
+    { href: '#home',       label: t?.nav?.home       || 'Home'       },
+    { href: '#about',      label: t?.nav?.about      || 'About'      },
+    { href: '#skills',     label: t?.nav?.skills     || 'Skills'     },
+    { href: '#projects',   label: t?.nav?.projects   || 'Projects'   },
+    { href: '#education',  label: t?.nav?.education  || 'Education'  },
+    { href: '#contact',    label: t?.nav?.contact    || 'Contact'    },
   ];
 
   return (
@@ -21,13 +21,13 @@ export default function Footer({ data, t }) {
           {/* Brand */}
           <div className="text-center md:text-left">
             <span className="font-black text-lg text-white">{data?.name || 'YM'}</span>
-            <p className="text-gray-500 text-sm mt-0.5">Software Engineering Student · ENSET</p>
+            <p className="text-gray-500 text-sm mt-0.5">{t?.footer?.student_title || 'Software Engineering Student'}</p>
           </div>
 
           {/* Links */}
           <nav className="flex flex-wrap justify-center gap-5">
             {links.map(({ href, label }) => (
-              <a key={label} href={href}
+              <a key={href} href={href}
                  className="text-gray-500 hover:text-indigo-400 text-sm transition-colors duration-300">
                 {label}
               </a>

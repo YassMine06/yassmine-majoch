@@ -3,7 +3,7 @@
  * Root component: loads README.md, parses it, manages dark/light mode,
  * renders sticky navbar and all sections with a loading overlay.
  */
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -24,33 +24,43 @@ gsap.registerPlugin(ScrollTrigger);
 
 // ── Main App ─────────────────────────────────────────────────────────────────
 export default function App() {
-  const [language,      setLanguage]      = useState('FR');
+  const [language, setLanguage] = useState(() => {
+    const saved = localStorage.getItem('portfolio_lang');
+    return (saved === 'EN' || saved === 'FR') ? saved : 'EN';
+  });
   const [loading,       setLoading]       = useState(true);
   const [activeSection, setActiveSection] = useState('home');
   const [menuOpen,      setMenuOpen]      = useState(false);
   const [scrolled,      setScrolled]      = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  const t = translations[language];
-  const currentPortfolioData = portfolioData[language];
+  const t = translations[language] || translations['EN'];
+  const currentPortfolioData = portfolioData[language] || portfolioData['EN'];
+
+  // Persist language
+  useEffect(() => {
+    localStorage.setItem('portfolio_lang', language);
+  }, [language]);
+
+  // ── Nav sections ──────────────────────────────────────────────────────────
+  const NAV_LINKS = useMemo(() => [
+    { href: '#home',       label: t?.nav?.home       || 'Home'       },
+    { href: '#about',      label: t?.nav?.about      || 'About'      },
+    { href: '#skills',     label: t?.nav?.skills     || 'Skills'     },
+    { href: '#projects',   label: t?.nav?.projects   || 'Projects'   },
+    { href: '#activities', label: t?.nav?.activities || 'Activities' },
+    { href: '#education',  label: t?.nav?.education  || 'Education'  },
+    { href: '#contact',    label: t?.nav?.contact    || 'Contact'    },
+  ], [t]);
 
   const loaderRef = useRef(null);
 
-  // ── Handling Loading Animation ──────────────────────────────────────────────
+  // ── Handling Loading Overlay ───────────────────────────────────────────────
   useEffect(() => {
-    // Brief delay before removing loader
+    // Shorter delay + direct state change if animation fails
     const timer = setTimeout(() => {
-      if (loaderRef.current) {
-        gsap.to(loaderRef.current, {
-          opacity: 0, 
-          duration: 0.6, 
-          ease: 'power2.in',
-          onComplete: () => setLoading(false),
-        });
-      } else {
-        setLoading(false);
-      }
-    }, 600);
+      setLoading(false);
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -83,7 +93,7 @@ export default function App() {
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [NAV_LINKS]); // Added NAV_LINKS to deps
 
   const handleNav = (e, href) => {
     e.preventDefault();
@@ -91,17 +101,6 @@ export default function App() {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
     setMenuOpen(false);
   };
-
-  // ── Nav sections ─────────────────────────────────────────────────────────────
-  const NAV_LINKS = [
-    { href: '#home',       label: t.nav.home       },
-    { href: '#about',      label: t.nav.about      },
-    { href: '#skills',     label: t.nav.skills     },
-    { href: '#projects',   label: t.nav.projects   },
-    { href: '#activities', label: t.nav.activities },
-    { href: '#education',  label: t.nav.education  },
-    { href: '#contact',    label: t.nav.contact    },
-  ];
 
   return (
     <div className='dark'>
@@ -153,20 +152,20 @@ export default function App() {
             {/* Language Switcher */}
             <div className="flex items-center gap-1 glass p-1 rounded-xl border border-white/10 mr-4">
               <button
-                onClick={() => setLanguage('FR')}
-                className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
-                  language === 'FR' ? 'bg-indigo-500 text-white shadow-lg' : 'text-gray-400 hover:text-white'
-                }`}
-              >
-                FR
-              </button>
-              <button
                 onClick={() => setLanguage('EN')}
                 className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
                   language === 'EN' ? 'bg-indigo-500 text-white shadow-lg' : 'text-gray-400 hover:text-white'
                 }`}
               >
                 EN
+              </button>
+              <button
+                onClick={() => setLanguage('FR')}
+                className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                  language === 'FR' ? 'bg-indigo-500 text-white shadow-lg' : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                FR
               </button>
             </div>
 
@@ -223,7 +222,7 @@ export default function App() {
         <Contact   data={currentPortfolioData} t={t.contact} />
       </main>
 
-      <Footer data={currentPortfolioData} t={t.footer} />
+      <Footer data={currentPortfolioData} t={t} />
     </div>
   );
 }

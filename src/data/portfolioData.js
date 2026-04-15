@@ -37,7 +37,7 @@ export const portfolioData = {
     skills: {
       languages: ["C", "C++", "Python", "Java", "PHP", "JavaScript"],
       web: ["HTML", "CSS", "JavaScript", "React"],
-      frameworks: ["Streamlit", "Flask"],
+      frameworks: ["Streamlit", "Flask", "Django"],
       databases: ["MySQL", "SQLite"],
       tools: ["Git", "GitHub", "Visual Studio Code"],
       systems: ["Linux", "Windows"]
@@ -92,10 +92,10 @@ export const portfolioData = {
       }
     ],
     languages: [
-      { language: "Arabic", level: "Native" },
-      { language: "French", level: "Good proficiency" },
-      { language: "English", level: "Intermediate (technical level)" }
-    ]
+      { language: "Arabic", level: "Fluent" },
+      { language: "French", level: "Good level" },
+      { language: "English", level: "Good level" }
+    ] 
   },
   FR: {
     name: 'Yassmine MAJOCH',
@@ -129,7 +129,7 @@ export const portfolioData = {
     skills: {
       languages: ["C", "C++", "Python", "Java", "PHP", "JavaScript"],
       web: ["HTML", "CSS", "JavaScript", "React"],
-      frameworks: ["Streamlit", "Flask"],
+      frameworks: ["Streamlit", "Flask", "Django"],
       databases: ["MySQL", "SQLite"],
       tools: ["Git", "GitHub", "Visual Studio Code"],
       systems: ["Linux", "Windows"]
@@ -184,9 +184,9 @@ export const portfolioData = {
       }
     ],
     languages: [
-      { language: "Arabe", level: "Langue maternelle" },
-      { language: "Français", level: "Bonne maîtrise" },
-      { language: "Anglais", level: "Intermédiaire (niveau technique)" }
+      { language: "Arabe", level: "Maîtrisé" },
+      { language: "Français", level: "Bon niveau" },
+      { language: "Anglais", level: "Bon niveau" }
     ]
   }
 };

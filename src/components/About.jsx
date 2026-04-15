@@ -94,11 +94,11 @@ export default function About({ data, t }) {
                 <div className="flex gap-2 mt-4">
                   <span className="px-3 py-1 rounded-full text-xs font-medium"
                         style={{ background: 'rgba(99,102,241,0.2)', color: '#a5b4fc' }}>
-                    Engineering
+                    {t.engineering_badge}
                   </span>
                   <span className="px-3 py-1 rounded-full text-xs font-medium"
                         style={{ background: 'rgba(6,182,212,0.15)', color: '#67e8f9' }}>
-                    Software
+                    {t.software_badge}
                   </span>
                 </div>
               </div>
@@ -126,7 +126,7 @@ export default function About({ data, t }) {
             <div className="flex flex-wrap gap-3 mb-8">
               {[
                 { icon: '📍', text: data?.location || 'Casablanca, Morocco' },
-                { icon: '🎓', text: 'ENSET Casablanca' },
+                { icon: '🎓', text: 'ENSET Mohammedia' },
                 { icon: '📧', text: data?.email || 'Contact Me' },
               ].map(({ icon, text }, idx) => (
                 <span key={`${text}-${idx}`}

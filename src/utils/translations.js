@@ -11,7 +11,7 @@ export const translations = {
     },
     hero: {
       badge: 'Available for opportunities',
-      greeting: "Hi, I'm",
+      greeting: "Hello, I'm",
       cta_work: 'View My Work',
       cta_contact: 'Contact Me',
       scroll: 'Scroll',
@@ -28,6 +28,8 @@ export const translations = {
       subtitle: 'A passionate engineering student based in Casablanca, Morocco',
       desc1: "I'm currently pursuing an Engineering Degree in GLSID (Software Engineering and Distributed Information Systems) at ENSET. I am driven by my curiosity and passion for building meaningful software solutions.",
       desc2: "My journey spans from C and low-level programming to full-stack web development with React and Flask, along with data-driven projects using Python and Streamlit. I thrive at the intersection of engineering rigor and creative problem-solving.",
+      engineering_badge: 'Engineering',
+      software_badge: 'Software',
       stats: {
         projects: 'Projects',
         experience: 'Years Exp.',
@@ -72,6 +74,8 @@ export const translations = {
       send_btn: 'Send Message',
     },
     footer: {
+      title: 'YM',
+      student_title: 'Software Engineering Student · ENSET',
       rights: 'All rights reserved.',
     }
   },
@@ -104,6 +108,8 @@ export const translations = {
       subtitle: 'Étudiante ingénieure passionnée basée à Casablanca, Maroc',
       desc1: "Je poursuis actuellement un Diplôme d'Ingénieure en GLSID (Génie Logiciel et Systèmes d'Information Distribués) à l'ENSET. Je suis motivée par ma curiosité et ma passion pour la création de solutions logicielles significatives.",
       desc2: "Mon parcours va de la programmation en C au développement web full-stack avec React et Flask, en passant par des projets axés sur les données avec Python et Streamlit. J'excelle à l'intersection de la rigueur technique et de la résolution créative de problèmes.",
+      engineering_badge: 'Ingénierie',
+      software_badge: 'Logiciel',
       stats: {
         projects: 'Projets',
         experience: 'Années Exp.',
@@ -149,6 +155,8 @@ export const translations = {
       send_btn: 'Envoyer',
     },
     footer: {
+      title: 'YM',
+      student_title: 'Étudiante en Génie Logiciel · ENSET',
       rights: 'Tous droits réservés.',
     }
   }
