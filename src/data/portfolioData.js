@@ -53,7 +53,7 @@ export const portfolioData = {
         title: "ENACTUS Club Website",
         tech: "React",
         description: "Designed and developed a modern and dynamic interface for the ENACTUS club.",
-        github: ""
+        github: "https://github.com/YassMine06/Enactus-.git"
       },
       {
         title: "Bank Management Application",
@@ -63,16 +63,24 @@ export const portfolioData = {
       },
       {
         title: "Library Management System",
-        tech: "",
+        tech: "React",
         description: "Developed a web-based system for managing books, users, and borrowing operations.",
-        github: ""
+        github: "https://github.com/YassMine06/BiblioNest.git"
       },
       {
         title: "Weather Application",
         tech: "Python, Streamlit, API",
         description: "Developed an application that retrieves and displays real-time weather data using an external API.",
-        github: ""
+        github: "https://github.com/YassMine06/meteo-py.git"
+      },
+      {
+        title: "AJCM Ibn Khaldoun - Association Platform",
+        tech: "React, Django, XGBoost, SQLite",
+        description: "A full-stack web platform for the AJCM Ibn Khaldoun association, featuring a public website and an admin dashboard with ML-powered features.",
+        github: "https://github.com/YassMine06/ajcm-ibn-khaldoun"
       }
+
+
     ],
     activities: [
       {
@@ -145,7 +153,7 @@ export const portfolioData = {
         title: "Site Web du Club ENACTUS",
         tech: "React",
         description: "Conception et développement d'une interface moderne et dynamique pour le club ENACTUS.",
-        github: ""
+        github: "https://github.com/YassMine06/Enactus-.git"
       },
       {
         title: "Application de Gestion Bancaire",
@@ -157,13 +165,19 @@ export const portfolioData = {
         title: "Système de Gestion de Bibliothèque",
         tech: "PHP, MySQL",
         description: "Système web pour gérer les livres, utilisateurs et opérations d'emprunt.",
-        github: ""
+        github: "https://github.com/YassMine06/BiblioNest.git"
       },
       {
         title: "Application Météo",
         tech: "Python, Streamlit, API",
         description: "Développement d'une application qui récupère et affiche des données météo en temps réel à l'aide d'une API externe.",
-        github: ""
+        github: "https://github.com/YassMine06/meteo-py.git"
+      },
+      {
+        title: "AJCM Ibn Khaldoun - Plateforme Associative",
+        tech: "React, Django, XGBoost, SQLite",
+        description: "Une plateforme web full-stack pour l'association AJCM Ibn Khaldoun, avec un site public et un tableau de bord administratif intégrant des fonctionnalités de Machine Learning.",
+        github: "https://github.com/YassMine06/ajcm-ibn-khaldoun"
       }
     ],
     activities: [

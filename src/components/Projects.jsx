@@ -11,10 +11,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Map tech stacks to color accents
 const TECH_COLORS = {
-  'HTML':       '#f97316', 'CSS':       '#06b6d4', 'JavaScript': '#eab308',
-  'React':      '#61dafb', 'Python':    '#3b82f6', 'C':          '#64748b',
-  'PHP':        '#a78bfa', 'Streamlit': '#ff4b4b', 'Flask':      '#10b981',
-  'API':        '#f59e0b', 'MySQL':     '#38bdf8',
+  'HTML':       '#ff6b35', 'CSS':       '#3b9cff', 'JavaScript': '#f7df1e',
+  'React':      '#61dafb', 'Python':    '#4b8bbe', 'C':          '#a8b9cc',
+  'PHP':        '#8892bf', 'Streamlit': '#ff4b4b', 'Flask':      '#00d4aa',
+  'API':        '#ff9500', 'MySQL':     '#00758f', 'Django':     '#0c4b33',
+  'XGBoost':    '#ff6600', 'SQLite':    '#0f80cc',
 };
 
 function TechTag({ label }) {
